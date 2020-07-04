@@ -3,6 +3,16 @@
     <input type="submit" value="Reg">
 </form> -->
 
+
+=> Create a table form
+   Field Required
+1. Table names
+2. Table start value
+3. Table end value
+
+After submission show the table.
+
+
 <?php
 
 
