@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// abc.com
-// Route::get('/', function () {return view('welcome');});
+
 Route::get('/', 'HomePageController@getHome');
-Route::get('/aboutus', 'HomePageController@getAboutUs');
-// Route::get('/contactus', '');
-// Route::get('/email', '');
-// Route::get('/registration', '');
-// Route::post('/registration', '');
+
+Route::get('/registration', 'UsersPageController@getRegistrationPage');
