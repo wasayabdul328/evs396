@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomePageController extends Controller
+class HomePageController extends ViewComposingController
 {
 
     public function getHome()
     {
-        return view('home');
+
+        return $this->buildPage('home');
     }
 
     public function getAboutUs(){
