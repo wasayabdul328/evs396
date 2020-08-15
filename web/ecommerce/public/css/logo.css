@@ -1,0 +1,9 @@
+header .lang-currency .parent-container{
+    background: #495357;
+    color: #fff;
+    border-radius: 4px;
+    max-width: 406px;
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 9px 10px 9px;
+}

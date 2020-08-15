@@ -8,26 +8,55 @@ class ViewComposingController extends Controller
 {
 
     protected $viewdata  = array();
+    protected $headerCssFiles = array();
+    protected $headerJSFiles = array();
+    protected $FooterJsFiles = array();
 
     public function buildPage($page)
     {
 
         $pageConfig = config('pages');
 
+
         if (!empty($pageConfig[$page])) {
 
             $cPage = $pageConfig[$page];
-            $layout = $cPage['layout'];
+            $configComponents = config('components');
+            $this->headerCssFiles = $cPage['headerCss'];
+            $globalcss = config('globalcss');
 
-            $components = array('head','header','left' , 'right','main', 'bottom', 'footer', 'foot');
+            $sections = array('headComponents', 'headerComponents', 'leftComponents', 'rightComponents', 'mainComponents', 'bottomComponents', 'footerComponents', 'footComponents');
 
-            foreach($components as $component){
+            foreach ($sections as $section) {
 
-                $this->viewdata[$component.'Components'] =$cPage[$component.'Components'];
+                $components = $cPage[$section];
+                foreach ($components as $component) {
+                    if(!empty($configComponents[$component])){
+                        $cHeaderCss = $configComponents[$component]['headerCss'];
+                        // dd($this->headerCssFiles);
+                        $this->headerCssFiles = array_merge($this->headerCssFiles,$cHeaderCss);
+                        // dd($this->headerCssFiles);
+                    }
+                    // dd($component);
+                }
+
+                $this->viewdata[$section] = $cPage[$section];
             }
 
-            // dd($this->viewdata);
-            return view($layout, $this->viewdata);
+            $filterHeaderCssFiles = array();
+            foreach ($this->headerCssFiles as $cssFile) {
+                $filterHeaderCssFiles[$cssFile] = $globalcss[$cssFile];
+            }
+
+            // dd($filterHeaderCssFiles);
+            // Css files store in viewdata
+            $this->viewdata['headerCssFiles'] = $filterHeaderCssFiles;
+
+
+
+            // dd(get_included_files());
+            // dd($this->headerCssFiles);
+            return view($cPage['layout'], $this->viewdata);
         } else {
             dd('Please create page config file');
         }

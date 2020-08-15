@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomePageController@getHome');
 
 Route::get('/registration', 'UsersPageController@getRegistrationPage');
+Route::get('/aboutus' , 'UsersPageController@getAboutPage');

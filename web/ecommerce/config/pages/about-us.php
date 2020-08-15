@@ -15,17 +15,18 @@ return [
     'headerComponents'=> [
         'logo_sec',
         'navigation',
-        'home_slider'
+        // 'home_slider'
     ],
     'leftComponents' => [
-        'left_aside'
+        // 'left_aside'
     ],
     'mainComponents' => [
-        'registration_form'
+        // 'aboutus'
     ],
     'rightComponents' => [],
     'bottomComponents' => [
-        'carousel'
+        'aboutus',
+        // 'carousel'
     ],
     'footerComponents' => [
         'footer_info'

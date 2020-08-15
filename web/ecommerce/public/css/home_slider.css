@@ -1,0 +1,50 @@
+header .slider-container{
+    margin-top: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    background: #f2f2f2;
+}
+header .slider-container > .slider-children {
+    margin: 5px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    background: #fff;
+}
+header .slider-container > .slider-children > div.controls {
+    max-width: 30%;
+    width: 100%;
+}
+header .slider-container > .slider-children > div.controls > ul > li {
+    padding: 17px 0;
+    color: #2f3638;
+    cursor: pointer;
+    background-size: 100%;
+    background-image: url('../img/slider/fnt-btn.png');
+}
+header .slider-container > .slider-children > div.controls > ul > li.active {
+    background-image: url('../img/slider/bg-btn1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #fff;
+}
+
+header .slider-container > .slider-children > div.controls > ul > li:first-child.active {
+    border-top-left-radius: 5px;
+}
+header .slider-container > .slider-children > div.controls > ul > li:last-child.active {
+    border-bottom-left-radius: 5px;
+}
+
+header .slider-container > .slider-children > div.controls > ul > li span{
+    padding-left: 8%;
+    padding-right: 5%;
+}
+header .slider-container > .slider-children > div.slides {
+    max-width: 70%;
+    width: 100%;
+    overflow: hidden;
+}
+header .slider-container > .slider-children > div.slides img{
+    height: auto;
+    width: 100%;
+}

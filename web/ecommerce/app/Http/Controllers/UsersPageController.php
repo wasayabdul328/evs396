@@ -16,4 +16,14 @@ class UsersPageController extends ViewComposingController
         return $this->buildPage('registration');
     }
 
+
+    public function getAboutPage(){
+        $this->viewdata['name'] = 'Aboutus Form';
+        $this->viewdata['name1'] = 'EVS2';
+
+
+// Keyword services
+
+        return $this->buildPage('about-us');
+    }
 }

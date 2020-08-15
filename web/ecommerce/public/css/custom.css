@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Sep 4, 2017, 12:30:45 PM
     Author     : Muhammad Saqib Tariq
 */
@@ -32,92 +32,9 @@ header{
     margin-top: 15px;
 }
 
-header .lang-currency .parent-container{
-    background: #495357;
-    color: #fff;
-    border-radius: 4px;
-    max-width: 406px;
-    width: 100%;
-    margin: 10px 0 0;
-    padding: 9px 10px 9px;
-}
 
-header nav.menu{
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    /*background: #f9f9f9;*/
-    background: linear-gradient(to top, rgba(246,246,246,1) -80% ,rgba(0,0,0,0) 70%);
-}
 
-header nav.menu li{
-    margin: 0px 15px;
-}
 
-header nav.menu li a{
-    text-decoration: none;
-    font-size: 16px;
-    color: #2f3638;
-    display: inline-block;
-    padding: 10px 15px;
-}
-header nav.menu li a:hover{
-    color:#0bb1e8;
-}
-
-header nav.menu li.active a{
-    color: #0bb1e8;
-}
-
-header .slider-container{
-    margin-top: 10px;
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    background: #f2f2f2;
-}
-header .slider-container > .slider-children {
-    margin: 5px;
-    border: 1px solid #d9d9d9;
-    border-radius: 2px;
-    background: #fff;
-}
-header .slider-container > .slider-children > div.controls {
-    max-width: 30%;
-    width: 100%;
-}
-header .slider-container > .slider-children > div.controls > ul > li {
-    padding: 17px 0;
-    color: #2f3638;
-    cursor: pointer; 
-    background-size: 100%;
-    background-image: url('../img/slider/fnt-btn.png');
-}
-header .slider-container > .slider-children > div.controls > ul > li.active {
-    background-image: url('../img/slider/bg-btn1.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    color: #fff;
-}
-
-header .slider-container > .slider-children > div.controls > ul > li:first-child.active {
-    border-top-left-radius: 5px;
-}
-header .slider-container > .slider-children > div.controls > ul > li:last-child.active {
-    border-bottom-left-radius: 5px;
-}
-
-header .slider-container > .slider-children > div.controls > ul > li span{
-    padding-left: 8%;
-    padding-right: 5%;
-}
-header .slider-container > .slider-children > div.slides {
-    max-width: 70%;
-    width: 100%;
-    overflow: hidden;
-}
-header .slider-container > .slider-children > div.slides img{
-    height: auto;
-    width: 100%;
-}
 
 section .aside-left{
     margin-top: 20px;

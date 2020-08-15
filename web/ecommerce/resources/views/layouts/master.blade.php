@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>{{!empty($name)?$name : 'No Title'}}</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
-    <link href="{{asset('/css/custom.css')}}" type="text/css" rel="stylesheet" media="all">
+        @foreach($headComponents as $component)
+            @include("/components.$component")
+        @endforeach
     </head>
     <body>
         <header>
