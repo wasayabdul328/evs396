@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Image;
 
 class UsersPageController extends ViewComposingController
 {
@@ -54,7 +55,7 @@ class UsersPageController extends ViewComposingController
             'gender' => 'required',
             'dob' => 'required|date',
             'country' => 'required',
-            'image' => 'required|mimes:png',
+            'image' => 'required|mimes:png,jpeg,jpg',
         ];
 
         $messages = [
@@ -64,9 +65,54 @@ class UsersPageController extends ViewComposingController
 
         // dd($request->all());
 
+
         $validator = Validator::make($request->all() ,$rules ,$messages);
 
-        dd($validator->messages()->all());
+
+        if(!empty($validator->messages()->all())){
+            die('asd'); // pending
+        }
+
+        $image_laravel  = $request->file('image'); // Laravel
+        $image  = Image::make($request->file('image'));  // Intervention
+
+
+
+        if(!is_dir(public_path('/users'))){
+            mkdir(public_path('/users'));
+        }
+
+        if(!is_dir(public_path('/users/'.$request->get('user_name')))){
+            mkdir(public_path('/users/'.$request->get('user_name')));
+        }
+
+        $des_path = public_path('/users/'.$request->get('user_name'));
+
+        $image_name = $request->get('user_name') . '.' . $image_laravel->getClientOriginalExtension();
+
+
+
+        // Laravel Image upload
+        // $upload = $image->move($des_path , $image_name);
+
+        // $image->resize(100,60);
+
+
+        $watermark = Image::make(public_path('/img/police.png'))->opacity(50);
+
+        $image->insert($watermark, 'bottom-right');
+
+        // dd($watermark);
+        $image->save($des_path . '/' . $image_name);
+        dd($image);
+
+        // Intervention Image Upload
+
+
+
+        // dd($upload);
+        dd($image);
+
 
 
 
