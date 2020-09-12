@@ -11,6 +11,8 @@
 |
 */
 
-$router->get('/', function(){
-    dd('asdasd');
-});
+$router->get('/users', 'UsersController@getAllUSers');          // Fetch All Users
+$router->post('/users', 'UsersController@addUser');             // For Add User
+$router->get('/users/{id}', 'UsersController@getSingleUser');         // Fetch Single User
+$router->put('/users/{id}', 'UsersController@updateUser');          // Update User
+$router->delete('/users/{id}', 'UsersController@deleteSingleUser');

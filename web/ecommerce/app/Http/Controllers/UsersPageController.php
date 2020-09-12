@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Image;
+use App\Helpers\ApiService;
 
 class UsersPageController extends ViewComposingController
 {
@@ -30,7 +31,7 @@ class UsersPageController extends ViewComposingController
     }
 
 
-    public function addToUSer(Request $request){
+    public function addToUSer(Request $request, ApiService $apiObj){
 
 
         // if(empty($request->get('name'))){
@@ -104,20 +105,33 @@ class UsersPageController extends ViewComposingController
 
         // dd($watermark);
         $image->save($des_path . '/' . $image_name);
-        dd($image);
 
-        // Intervention Image Upload
+        // dd($image);
 
+        // api call - server to server comunication
+        // <form>
 
-
-        // dd($upload);
-        dd($image);
-
-        // api call
+        // </form>
 
 
+        $params = array();
+        $params['name'] = $request->get('name');
+        $params['user_name'] = $request->get('user_name');
+        $params['email'] = $request->get('email');
+        $params['password'] = sha1($request->get('password'));
+        $params['gender'] = $request->get('gender');
+        $params['dob'] = $request->get('dob');
+        $params['country'] = $request->get('country');
+        $params['image'] = $image_name;
 
 
-        dd($request->all());
+        $resposne = $apiObj->sendApiRequest('POST', 'users', $params);
+
+
+
+
+
+
+        dd($resposne);
     }
 }
