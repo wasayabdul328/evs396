@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ViewComposingController extends Controller
 {
 
-    protected $viewdata  = array();
+    protected $viewData  = array();
     protected $headerCssFiles = array();
     protected $headerJSFiles = array();
     protected $FooterJsFiles = array();
@@ -40,7 +40,7 @@ class ViewComposingController extends Controller
                     // dd($component);
                 }
 
-                $this->viewdata[$section] = $cPage[$section];
+                $this->viewData[$section] = $cPage[$section];
             }
 
             $filterHeaderCssFiles = array();
@@ -50,13 +50,13 @@ class ViewComposingController extends Controller
 
             // dd($filterHeaderCssFiles);
             // Css files store in viewdata
-            $this->viewdata['headerCssFiles'] = $filterHeaderCssFiles;
+            $this->viewData['headerCssFiles'] = $filterHeaderCssFiles;
 
 
 
             // dd(get_included_files());
             // dd($this->headerCssFiles);
-            return view($cPage['layout'], $this->viewdata);
+            return view($cPage['layout'], $this->viewData);
         } else {
             dd('Please create page config file');
         }

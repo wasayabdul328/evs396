@@ -1,5 +1,15 @@
 <h1>Registration Form</h1>
 
+@if(!empty($errors))
+<ul>
+    @foreach ($errors as $error)
+        <li class="label label-danger">{{$error}}</li>
+    @endforeach
+</ul>
+@endif
+
+<h2>{{!empty($message) ? $message : ''}}</h2>
+
 {!! Form::open(['url' => '/registration' , 'files' => true]) !!}
     <div class="form-group">
         {{ Form::label('name:', null) }}

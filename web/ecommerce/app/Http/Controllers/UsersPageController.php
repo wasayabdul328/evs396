@@ -7,6 +7,8 @@ use Validator;
 use Image;
 use App\Helpers\ApiService;
 
+use function GuzzleHttp\json_decode;
+
 class UsersPageController extends ViewComposingController
 {
 
@@ -33,6 +35,20 @@ class UsersPageController extends ViewComposingController
 
     public function addToUSer(Request $request, ApiService $apiObj){
 
+
+        //serialization
+        //Json
+
+        // $user = array(
+        //     'name' => 'saqib',
+        //     'user_name' => 'saqib123'
+        // );
+
+        // // $encode = serialize($user);
+        // // $decode = unserialize($encode);
+        // $encode = json_encode($user);
+        // $decode = json_decode($encode);
+        // dd($decode);
 
         // if(empty($request->get('name'))){
         //     return 'Name is required';
@@ -71,7 +87,10 @@ class UsersPageController extends ViewComposingController
 
 
         if(!empty($validator->messages()->all())){
-            die('asd'); // pending
+
+            $this->viewData['errors'] = $validator->messages()->all();
+
+            return $this->buildPage('registration');
         }
 
         $image_laravel  = $request->file('image'); // Laravel
@@ -128,10 +147,10 @@ class UsersPageController extends ViewComposingController
         $resposne = $apiObj->sendApiRequest('POST', 'users', $params);
 
 
+        $this->viewData['message'] = $resposne->message;
 
 
+        return $this->buildPage('registration');
 
-
-        dd($resposne);
     }
 }
